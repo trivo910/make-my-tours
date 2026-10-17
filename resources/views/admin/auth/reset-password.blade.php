@@ -1,0 +1,7 @@
+@extends('admin.auth.layout')
+@section('title', 'Choose a new password')
+@section('content')
+    <a class="auth-mobile-brand brand" href="{{ url('/') }}"><span class="brand-mark">M</span><span>Make My Tours<small>CONTROL ROOM</small></span></a>
+    <span class="eyebrow">ACCOUNT RECOVERY</span><h1>Choose a new<br>password</h1><p class="auth-intro">Create a strong password for your administrator account.</p>
+    <form class="form-stack" action="{{ route('admin.password.update') }}" method="post">@csrf<input type="hidden" name="token" value="{{ $token }}"><label class="field-label" for="email">Email address</label><input class="text-input" id="email" name="email" type="email" value="{{ old('email', $email) }}" autocomplete="email" required>@error('email')<p class="field-error">{{ $message }}</p>@enderror<label class="field-label" for="password">New password</label><div class="password-wrap"><input class="text-input" id="password" name="password" type="password" autocomplete="new-password" required><button class="show-password" type="button" data-password-toggle="password" aria-label="Show password">Show</button></div>@error('password')<p class="field-error">{{ $message }}</p>@enderror<label class="field-label" for="password_confirmation">Confirm new password</label><input class="text-input" id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" required><button class="button-primary" type="submit"><span>Update password</span><span aria-hidden="true">↗</span></button></form>
+@endsection

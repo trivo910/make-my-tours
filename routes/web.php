@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\PasswordResetController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\Blog\CategoryController;
+use App\Http\Controllers\Admin\Blog\PostController as AdminPostController;
+use App\Http\Controllers\Admin\Blog\EditorImageController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SitemapController;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -24,4 +32,43 @@ Route::get('/urbania', function () {
 
 Route::get('/faqs', function () {
     return view('pages.faqs');
+});
+
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
+Route::get('/blog/tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::middleware('guest')->group(function () {
+        Route::get('/login', [AuthController::class, 'create'])->name('login');
+        Route::post('/login', [AuthController::class, 'store'])->middleware('throttle:admin-login')->name('login.store');
+        Route::get('/forgot-password', [PasswordResetController::class, 'requestForm'])->name('password.request');
+        Route::post('/forgot-password', [PasswordResetController::class, 'sendLink'])->middleware('throttle:5,1')->name('password.email');
+        Route::get('/reset-password/{token}', [PasswordResetController::class, 'resetForm'])->name('password.reset');
+        Route::post('/reset-password', [PasswordResetController::class, 'reset'])->name('password.update');
+    });
+
+    Route::middleware(['auth', 'admin'])->group(function () {
+        Route::get('/', fn () => view('admin.dashboard', [
+            'recentPosts' => \App\Models\BlogPost::with('category')->latest('updated_at')->take(3)->get(),
+        ]))->name('dashboard');
+        Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::get('/blog', [AdminPostController::class, 'index'])->name('blog.index');
+        Route::get('/blog/create', [AdminPostController::class, 'create'])->name('blog.create');
+        Route::post('/blog', [AdminPostController::class, 'store'])->name('blog.store');
+        Route::post('/blog/bulk-delete', [AdminPostController::class, 'bulkDestroy'])->name('blog.bulk-destroy');
+        Route::post('/blog/{post}/toggle-publish', [AdminPostController::class, 'togglePublish'])->name('blog.toggle-publish');
+        Route::post('/blog/editor-image', EditorImageController::class)->name('blog.editor-image');
+        Route::get('/blog/{post}/edit', [AdminPostController::class, 'edit'])->name('blog.edit');
+        Route::put('/blog/{post}', [AdminPostController::class, 'update'])->name('blog.update');
+        Route::delete('/blog/{post}', [AdminPostController::class, 'destroy'])->name('blog.destroy');
+        Route::get('/blog-categories', [CategoryController::class, 'index'])->name('blog-categories.index');
+        Route::post('/blog-categories', [CategoryController::class, 'store'])->name('blog-categories.store');
+        Route::put('/blog-categories/{category}', [CategoryController::class, 'update'])->name('blog-categories.update');
+        Route::delete('/blog-categories/{category}', [CategoryController::class, 'destroy'])->name('blog-categories.destroy');
+    });
 });

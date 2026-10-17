@@ -26,6 +26,34 @@ npm run dev
 
 Open `http://127.0.0.1:8000`.
 
+## Admin access (Module 0)
+
+The admin panel is available at `/admin/login`. Before creating the first admin, set `ADMIN_NAME`, `ADMIN_EMAIL`, and a strong `ADMIN_PASSWORD` in `.env`. Then run:
+
+```bash
+php artisan migrate --force
+php artisan db:seed --force
+```
+
+The seeder creates or updates the account matching `ADMIN_EMAIL`; it does not install a sample account or password. Clear `ADMIN_PASSWORD` from the deployment environment after seeding. Authenticated admin routes use session authentication and the `admin` role, and login attempts are limited to five per minute by IP and email. Production session cookies default to Secure; set `SESSION_SECURE_COOKIE=true` explicitly when HTTPS is enabled behind a proxy. Password recovery uses Laravel's configured mailer. Configure SMTP before using it; with the default `MAIL_MAILER=log`, the recovery page explains that delivery is not available.
+
+The admin shell and login screens use the responsive Bento card layout. The dashboard now includes live blog totals and a quick action to create a post. Email and contact tools will be added in their respective reviewable modules.
+
+## Blog management (Module 1)
+
+Run the migrations, then create the public storage link so featured and editor images can be served:
+
+```bash
+php artisan migrate --force
+php artisan storage:link
+```
+
+Blog image uploads accept JPEG, PNG, and WebP up to 5 MB and are resized to at most 1600×1200 WebP. Enable PHP GD with WebP support and Fileinfo on the host. Admin tools are at `/admin/blog`; public stories are at `/blog`. Posts are visible only after their status is `published` and their publish time has arrived. Category changes to a post slug keep the previous slug for a permanent redirect.
+
+### Shared hosting queues
+
+The application can use `QUEUE_CONNECTION=database`; the jobs table migration is already included, so run `php artisan migrate --force`. On Hostinger, configure a cron job to run `cd /path/to/app && php artisan queue:work --stop-when-empty --max-time=50` every minute. Use `QUEUE_CONNECTION=sync` as a fallback when cron workers are unavailable; queued work then runs during the web request.
+
 ## Page files
 
 | Page | Route | Blade view | Stylesheet | Notes |
