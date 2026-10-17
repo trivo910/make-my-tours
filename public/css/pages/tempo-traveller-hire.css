@@ -1,0 +1,1245 @@
+/* =========================================================
+   TEMPO TRAVELLER HIRE PAGE
+   Make My Tours & Travels
+   ========================================================= */
+
+:root {
+    --tt-orange: #ff642d;
+    --tt-orange-dark: #ed5420;
+    --tt-black: #080808;
+    --tt-dark: #111111;
+    --tt-text: #222222;
+    --tt-muted: #777777;
+    --tt-light: #f7f7f7;
+    --tt-border: #e8e8e8;
+    --tt-white: #ffffff;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+.tt-hero *,
+.tt-enquiry-wrapper *,
+.tt-intro *,
+.tt-fleet *,
+.tt-why *,
+.tt-occasions *,
+.tt-destinations *,
+.tt-service-price *,
+.tt-booking *,
+.tt-cta *,
+.tt-faq *,
+.tt-final-cta * {
+    box-sizing: border-box;
+}
+
+.tt-hero,
+.tt-enquiry-wrapper,
+.tt-intro,
+.tt-fleet,
+.tt-why,
+.tt-occasions,
+.tt-destinations,
+.tt-service-price,
+.tt-booking,
+.tt-cta,
+.tt-faq,
+.tt-final-cta {
+    font-family: "Barlow", sans-serif;
+}
+
+.container {
+    width: min(1450px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 90px 0;
+}
+
+.section-label {
+    display: inline-block;
+    color: var(--tt-orange);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 45px;
+}
+
+.section-heading h2,
+.tt-content h2,
+.tt-service-content h2 {
+    margin: 0 0 18px;
+    font-size: 40px;
+    line-height: 1.12;
+    font-weight: 700;
+    color: var(--tt-black);
+}
+
+.section-heading h2 span,
+.tt-content h2 span,
+.tt-service-content h2 span {
+    color: var(--tt-orange);
+}
+
+.section-heading p {
+    color: var(--tt-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.left-heading {
+    text-align: left;
+    margin-left: 0;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 24px;
+    border-radius: 50px;
+    background: var(--tt-orange);
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+    background: var(--tt-orange-dark);
+    transform: translateY(-2px);
+}
+
+.btn-primary span {
+    font-size: 18px;
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 23px;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 50px;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: var(--tt-black) !important;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.tt-hero {
+    min-height: 800px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background:
+        url("../../images/tempo/tempo-hero.jpg")
+        center center / cover no-repeat;
+    color: #fff;
+}
+
+.tt-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.86) 0%,
+            rgba(0,0,0,0.66) 48%,
+            rgba(0,0,0,0.22) 100%
+        );
+}
+
+.tt-hero-container {
+    position: relative;
+    z-index: 2;
+}
+
+.tt-hero-content {
+    width: 580px;
+    max-width: 100%;
+    padding: 100px 0 70px;
+}
+
+.tt-eyebrow {
+    display: block;
+    color: var(--tt-orange);
+    font-size: 16x;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    margin-bottom: 14px;
+}
+
+.tt-hero h1 {
+    margin: 0 0 20px;
+    color: #fff;
+    font-size: 62px;
+    line-height: 1.02;
+    font-weight: 700;
+}
+
+.tt-hero h1 span {
+    display: block;
+    color: #fff;
+}
+
+.tt-hero p {
+    max-width: 570px;
+    margin: 0 0 30px;
+    color: rgba(255,255,255,0.88);
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+.tt-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 16px;
+    border-radius: 50px;
+}
+
+
+/* =========================================================
+   ENQUIRY
+   ========================================================= */
+
+.tt-enquiry-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-top: -125px;
+}
+
+.tt-enquiry-box {
+    background: #fff;
+    border-radius: 10px;
+    padding: 28px 30px 30px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+}
+
+.tt-enquiry-heading {
+    margin-bottom: 20px;
+}
+
+.tt-enquiry-heading span {
+    color: var(--tt-muted);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.tt-enquiry-heading h2 {
+    margin: 3px 0 0;
+    font-size: 25px;
+    line-height: 1.2;
+    color: var(--tt-black);
+}
+
+.tt-enquiry-heading strong {
+    color: var(--tt-orange);
+}
+
+.tt-enquiry-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.tt-form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #494646;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tt-form-group input,
+.tt-form-group select {
+    width: 100%;
+    height: 46px;
+    padding: 0 13px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    background: #fff;
+    color: #333;
+    /* font-family: inherit; */
+    font-size: 16px;
+}
+
+.tt-form-group input:focus,
+.tt-form-group select:focus {
+    border-color: var(--tt-orange);
+}
+
+.tt-submit-btn {
+    align-self: end;
+    height: 48px;
+    border: 0;
+    border-radius: 5px;
+    background: var(--tt-orange);
+    color: #fff;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.tt-submit-btn:hover {
+    background: var(--tt-orange-dark);
+}
+
+.tt-submit-btn span {
+    margin-left: 8px;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.tt-intro {
+    background: #fff;
+}
+
+.tt-two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.tt-content h2 {
+    font-size: 40px;
+}
+
+.tt-content p {
+    margin: 0 0 17px;
+    color: #777;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.text-btn {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    padding: 13px 20px;
+    border-radius: 6px;
+    background: var(--tt-orange);
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.tt-image-box {
+    position: relative;
+}
+
+.tt-image-box > img {
+    width: 100%;
+    height: 510px;
+    display: block;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.tt-floating-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 17px;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.tt-floating-card.top-card {
+    top: 22px;
+    left: -25px;
+}
+
+.tt-floating-card.bottom-card {
+    right: -25px;
+    bottom: 25px;
+}
+
+.tt-floating-card .icon {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff2ed;
+    color: var(--tt-orange);
+    font-weight: 800;
+}
+
+.tt-floating-card strong,
+.tt-floating-card small {
+    display: block;
+}
+
+.tt-floating-card strong {
+    color: #222;
+    font-size: 13px;
+}
+
+.tt-floating-card small {
+    margin-top: 2px;
+    color: #888;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FLEET
+   ========================================================= */
+
+.tt-fleet {
+    background: #fafafa;
+}
+
+.tt-fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.tt-fleet-card {
+    overflow: hidden;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    background: #fff;
+    transition: 0.25s ease;
+}
+
+.tt-fleet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+}
+
+.fleet-image {
+    height: 190px;
+    overflow: hidden;
+}
+
+.fleet-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: 0.4s ease;
+}
+
+.tt-fleet-card:hover .fleet-image img {
+    transform: scale(1.04);
+}
+
+.fleet-content {
+    padding: 20px;
+}
+
+.fleet-content h3 {
+    margin: 0 0 9px;
+    color: #111;
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.fleet-content p {
+    min-height: 88px;
+    margin: 0 0 12px;
+    color: #777;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.fleet-content ul {
+    padding: 0;
+    margin: 0 0 17px;
+    list-style: none;
+}
+
+.fleet-content li {
+    position: relative;
+    margin-bottom: 6px;
+    padding-left: 19px;
+    color: #555;
+    font-size: 16px;
+}
+
+.fleet-content li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--tt-orange);
+    font-weight: 800;
+}
+
+.fleet-btn {
+    display: block;
+    padding: 10px 14px;
+    border: 1px solid var(--tt-orange);
+    border-radius: 5px;
+    text-align: center;
+    color: var(--tt-orange) !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.fleet-btn:hover {
+    background: var(--tt-orange);
+    color: #fff !important;
+}
+
+
+/* =========================================================
+   WHY CHOOSE US
+   ========================================================= */
+
+.tt-why {
+    padding: 75px 0;
+    background: #0a0a0a;
+    color: #fff;
+}
+
+.tt-why-wrapper {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.tt-why-content h2 {
+    max-width: 650px;
+    margin: 0 0 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.12;
+}
+
+.tt-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 25px;
+}
+
+.tt-benefit {
+    display: flex;
+    gap: 14px;
+}
+
+.benefit-icon {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--tt-orange);
+    border-radius: 50%;
+    color: var(--tt-orange);
+    font-size: 25px;
+}
+
+.tt-benefit h3 {
+    margin: 0 0 5px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.tt-benefit p {
+    margin: 0;
+    color: #cac8c8;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.tt-why-image img {
+    width: 100%;
+    height: 450px;
+    display: block;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+
+/* =========================================================
+   OCCASIONS
+   ========================================================= */
+
+.tt-occasions {
+    background: #fff;
+}
+
+.tt-occasion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.tt-occasion-card {
+    padding: 27px;
+    border: 1px solid #ededed;
+    border-radius: 7px;
+    background: #fff;
+    transition: 0.25s ease;
+}
+
+.tt-occasion-card:hover {
+    border-color: #ffd3c3;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+.tt-occasion-card > span {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 27px;
+}
+
+.tt-occasion-card h3 {
+    margin: 0 0 8px;
+    color: #111;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.tt-occasion-card p {
+    margin: 0;
+    color: #424242;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   DESTINATIONS
+   ========================================================= */
+
+.tt-destinations {
+    background: #fafafa;
+}
+
+.tt-destination-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.destination-card {
+    overflow: hidden;
+    border-radius: 7px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+}
+
+.destination-card img {
+    width: 100%;
+    height: 145px;
+    display: block;
+    object-fit: cover;
+}
+
+.destination-card h3 {
+    margin: 13px 14px 5px;
+    color: #111;
+    font-size: 16px;
+}
+
+.destination-card p {
+    margin: 0 14px 15px;
+    color: #888;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SERVICE + PRICE
+   ========================================================= */
+
+.tt-service-price {
+    background: #fff;
+}
+
+.tt-service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.tt-service-content h2 {
+    font-size: 38px;
+}
+
+.tt-service-content p {
+    max-width: 600px;
+    margin: 0 0 25px;
+    color: #777;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.location-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.location-pills span {
+    padding: 7px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    color: #555;
+    background: #fff;
+    font-size: 12px;
+}
+
+.tt-price-box {
+    display: flex;
+    gap: 20px;
+    padding: 35px;
+    border-radius: 10px;
+    background: #fff2ec;
+}
+
+.price-icon {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--tt-orange);
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.tt-price-box h2 {
+    margin: 0 0 12px;
+    color: #111;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.tt-price-box p {
+    margin: 0 0 20px;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   BOOKING STEPS
+   ========================================================= */
+
+.tt-booking {
+    background: #fafafa;
+}
+
+.tt-steps {
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr 50px 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.tt-step {
+    display: flex;
+    gap: 17px;
+    align-items: flex-start;
+}
+
+.step-number {
+    color: var(--tt-orange);
+    font-size: 26px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.tt-step h3 {
+    margin: 0 0 7px;
+    color: #111;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.tt-step p {
+    margin: 0;
+    color: #777;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.step-arrow {
+    color: var(--tt-orange);
+    text-align: center;
+    font-size: 28px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.tt-cta {
+    position: relative;
+    padding: 70px 0;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.93),
+            rgba(0,0,0,0.65)
+        ),
+        url("../../images/tempo/tempo-cta.jpg")
+        center / cover no-repeat;
+    color: #fff;
+}
+
+.tt-cta-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.tt-cta h2 {
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.tt-cta p {
+    margin: 0;
+    color: #ccc;
+    font-size: 16px;
+}
+
+.tt-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+.tt-faq {
+    background: #fff;
+}
+
+.tt-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 18px;
+}
+
+.tt-faq-grid details {
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.tt-faq-grid summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 20px;
+    cursor: pointer;
+    color: #222;
+    font-size: 18px;
+    font-weight: 600;
+    list-style: none;
+}
+
+.tt-faq-grid summary::-webkit-details-marker {
+    display: none;
+}
+
+.tt-faq-grid summary span {
+    color: var(--tt-orange);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.tt-faq-grid details p {
+    margin: 0;
+    padding: 0 20px 18px;
+    color: #777;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.tt-final-cta {
+    padding: 55px 0;
+    background: var(--tt-orange);
+    color: #fff;
+}
+
+.tt-final-cta .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.tt-final-cta span {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.tt-final-cta h2 {
+    margin: 5px 0 5px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.tt-final-cta p {
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+}
+
+.tt-final-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.white-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 22px;
+    border-radius: 5px;
+    background: #fff;
+    color: var(--tt-orange) !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.dark-outline-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 22px;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 5px;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .tt-hero h1 {
+        font-size: 50px;
+    }
+
+    .tt-fleet-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tt-destination-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .tt-two-column {
+        gap: 40px;
+    }
+
+    .tt-why-wrapper {
+        gap: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: min(100% - 30px, 600px);
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-heading h2,
+    .tt-content h2,
+    .tt-service-content h2 {
+        font-size: 30px;
+    }
+
+
+    /* HERO */
+
+    .tt-hero {
+        min-height: 620px;
+        background-position: 65% center;
+    }
+
+    .tt-hero-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(0,0,0,0.85),
+                rgba(0,0,0,0.58)
+            );
+    }
+
+    .tt-hero-content {
+        width: 100%;
+        padding: 100px 0 80px;
+    }
+
+    .tt-hero h1 {
+        font-size: 42px;
+    }
+
+    .tt-hero p {
+        font-size: 15px;
+    }
+
+    .tt-hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    /* FORM */
+
+    .tt-enquiry-wrapper {
+        margin-top: -40px;
+    }
+
+    .tt-enquiry-box {
+        padding: 22px;
+    }
+
+    .tt-enquiry-form {
+        grid-template-columns: 1fr;
+    }
+
+    .tt-submit-btn {
+        width: 100%;
+    }
+
+
+    /* INTRO */
+
+    .tt-two-column {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .tt-image-box > img {
+        height: 380px;
+    }
+
+    .tt-floating-card.top-card {
+        left: 10px;
+    }
+
+    .tt-floating-card.bottom-card {
+        right: 10px;
+    }
+
+
+    /* FLEET */
+
+    .tt-fleet-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fleet-content p {
+        min-height: auto;
+    }
+
+
+    /* WHY */
+
+    .tt-why-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .tt-why-content h2 {
+        font-size: 30px;
+    }
+
+    .tt-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .tt-why-image img {
+        height: 350px;
+    }
+
+
+    /* OCCASIONS */
+
+    .tt-occasion-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* DESTINATIONS */
+
+    .tt-destination-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* PRICE */
+
+    .tt-service-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .tt-price-box {
+        padding: 25px;
+    }
+
+
+    /* STEPS */
+
+    .tt-steps {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .step-arrow {
+        display: none;
+    }
+
+
+    /* CTA */
+
+    .tt-cta-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tt-cta h2 {
+        font-size: 32px;
+    }
+
+
+    /* FAQ */
+
+    .tt-faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* FINAL CTA */
+
+    .tt-final-cta .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tt-final-cta h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .tt-hero h1 {
+        font-size: 35px;
+    }
+
+    .tt-hero-content {
+        padding-top: 90px;
+    }
+
+    .tt-hero-buttons .btn-primary,
+    .tt-hero-buttons .btn-outline {
+        width: 100%;
+    }
+
+    .tt-destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tt-final-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .white-btn,
+    .dark-outline-btn {
+        width: 100%;
+    }
+
+}

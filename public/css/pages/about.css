@@ -1,0 +1,190 @@
+:root {
+    --about-orange: #f0642b;
+    --about-ink: #111;
+    --about-muted: #858589;
+    --about-content-width: 1270px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--about-ink);
+    background: #fff;
+    font-family: "Heebo", Arial, sans-serif;
+    font-size: 10px;
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.about-banner {
+    position: relative;
+    height: 241px;
+    overflow: hidden;
+    background: #101414 url("/images/public-transportation-coach-bus-passenger-e1656574186152.webp") center 53% / cover no-repeat;
+    color: #fff;
+}
+
+.about-banner::before {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    content: "";
+}
+
+.about-banner-inner {
+    position: relative;
+    display: flex;
+    width: min(1320px, calc(100% - 104px));
+    height: 100%;
+    align-items: center;
+    margin-inline: auto;
+    padding-top: 48px;
+}
+
+.about-banner h1 {
+    margin: 0;
+    font-family: "Barlow", Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.about-story {
+    padding: 62px 0 76px;
+    background: #fff;
+}
+
+.about-story-inner {
+    display: grid;
+    width: min(var(--about-content-width), 84%);
+    grid-template-columns: 1fr 1fr;
+    gap: 38px;
+    align-items: start;
+    margin-inline: auto;
+}
+
+.about-story-copy {
+    padding-top: 5px;
+}
+
+.about-story-copy h2 {
+    margin: 0 0 10px;
+    font-family: "Barlow", Arial, sans-serif;
+    font-size: clamp(20px, 2.6vw, 31px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.about-story-copy p {
+    margin: 0 0 6px;
+    color: var(--about-muted);
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.55;
+}
+
+.about-story-image {
+    width: 100%;
+    aspect-ratio: 0.765;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 1000px) {
+    .about-story-inner {
+        width: calc(84% + 20px);
+        gap: 26px;
+        transform: translateX(5px);
+    }
+
+    .about-story-copy {
+        padding: 9px 0 0 14px;
+    }
+
+    .about-story-copy p {
+        font-size: 9px;
+        line-height: 1.65;
+    }
+
+}
+
+@media (max-width: 720px) {
+    .about-banner-inner {
+        width: calc(100% - 40px);
+    }
+
+    .about-banner {
+        height: 220px;
+        background-position: 58% center;
+    }
+
+    .about-banner-inner {
+        padding-top: 48px;
+    }
+
+    .about-banner h1 {
+        font-size: 26px;
+    }
+
+    .about-story {
+        padding-block: 42px 54px;
+    }
+
+    .about-story-inner {
+        width: calc(100% - 40px);
+        grid-template-columns: 1fr;
+        gap: 26px;
+        transform: none;
+    }
+
+    .about-story-copy {
+        padding: 0;
+    }
+
+    .about-story-copy h2 {
+        margin-bottom: 12px;
+        font-size: clamp(25px, 7vw, 31px);
+    }
+
+    .about-story-copy p {
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .about-story-image {
+        max-height: 530px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .about-story-inner {
+        gap: 21px;
+    }
+
+    .about-story-image {
+        aspect-ratio: .82;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
