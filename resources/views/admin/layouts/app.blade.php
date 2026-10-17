@@ -22,7 +22,7 @@
                 <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}"><span>▦</span> Overview</a>
                 <a class="nav-link {{ request()->routeIs('admin.blog*') || request()->routeIs('admin.blog-categories*') ? 'active' : '' }}" href="{{ route('admin.blog.index') }}"><span>✎</span> Blog</a>
                 <a class="nav-link {{ request()->routeIs('admin.settings.email*') ? 'active' : '' }}" href="{{ route('admin.settings.email.edit') }}"><span>✉</span> Email settings</a>
-                <div class="nav-link muted" aria-disabled="true"><span>◉</span> Contacts <small>SOON</small></div>
+                <a class="nav-link {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}"><span>◉</span> Contacts @if($unreadContacts)<small class="nav-badge">{{ $unreadContacts > 99 ? '99+' : $unreadContacts }}</small>@endif</a>
             </nav>
             <div class="sidebar-bottom"><div class="security-note"><span class="status-dot"></span><div><strong>Admin access</strong><small>Protected session</small></div></div></div>
         </aside>

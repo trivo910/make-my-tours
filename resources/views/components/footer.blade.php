@@ -16,7 +16,7 @@
             <a href="{{ url('/#services') }}">Services</a>
             <a href="{{ url('/#fleet') }}">Projects</a>
             <a href="{{ url('/#fleet') }}">Pricing</a>
-            <a href="{{ url('/#contact') }}">Contact</a>
+            <a href="{{ route('contact.create') }}">Contact</a>
         </div>
         <div class="footer-column contact-column">
             <h2>Contact Info</h2>

@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\Blog\EditorImageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Admin\EmailSettingsController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\ContactSubmissionController;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -36,6 +38,8 @@ Route::get('/faqs', function () {
 });
 
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
+Route::post('/contact', [ContactController::class, 'store'])->middleware('throttle:contact-form')->name('contact.store');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
 Route::get('/blog/tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
@@ -56,6 +60,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
             'recentPosts' => \App\Models\BlogPost::with('category')->latest('updated_at')->take(3)->get(),
             'emailTest' => \App\Models\EmailLog::latest()->first(),
             'emailConfigured' => \App\Models\Setting::where('key', 'mail_host')->whereNotNull('value')->exists(),
+            'unreadCount' => \App\Models\ContactSubmission::unread()->count(),
+            'recentContacts' => \App\Models\ContactSubmission::latest()->take(3)->get(),
         ]))->name('dashboard');
         Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -63,6 +69,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/settings/email', [EmailSettingsController::class, 'edit'])->name('settings.email.edit');
         Route::put('/settings/email', [EmailSettingsController::class, 'update'])->name('settings.email.update');
         Route::post('/settings/email/test', [EmailSettingsController::class, 'sendTest'])->middleware('throttle:3,1')->name('settings.email.test');
+        Route::get('/contacts/export', [ContactSubmissionController::class, 'export'])->name('contacts.export');
+        Route::post('/contacts/bulk-delete', [ContactSubmissionController::class, 'bulkDestroy'])->name('contacts.bulk-destroy');
+        Route::get('/contacts', [ContactSubmissionController::class, 'index'])->name('contacts.index');
+        Route::get('/contacts/{submission}', [ContactSubmissionController::class, 'show'])->name('contacts.show');
+        Route::patch('/contacts/{submission}/read', [ContactSubmissionController::class, 'toggleRead'])->name('contacts.toggle-read');
+        Route::post('/contacts/{submission}/resend', [ContactSubmissionController::class, 'resend'])->name('contacts.resend');
+        Route::delete('/contacts/{submission}', [ContactSubmissionController::class, 'destroy'])->name('contacts.destroy');
         Route::get('/blog', [AdminPostController::class, 'index'])->name('blog.index');
         Route::get('/blog/create', [AdminPostController::class, 'create'])->name('blog.create');
         Route::post('/blog', [AdminPostController::class, 'store'])->name('blog.store');

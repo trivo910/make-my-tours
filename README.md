@@ -37,7 +37,7 @@ php artisan db:seed --force
 
 The seeder creates or updates the account matching `ADMIN_EMAIL`; it does not install a sample account or password. Clear `ADMIN_PASSWORD` from the deployment environment after seeding. Authenticated admin routes use session authentication and the `admin` role, and login attempts are limited to five per minute by IP and email. Production session cookies default to Secure; set `SESSION_SECURE_COOKIE=true` explicitly when HTTPS is enabled behind a proxy. Password recovery uses Laravel's configured mailer. Configure SMTP before using it; with the default `MAIL_MAILER=log`, the recovery page explains that delivery is not available.
 
-The admin shell and login screens use the responsive Bento card layout. The dashboard now includes live blog totals and a quick action to create a post. Email and contact tools will be added in their respective reviewable modules.
+The admin shell and login screens use the responsive Bento card layout. The dashboard includes live blog totals, email status, unread contacts, recent enquiries, and quick actions. Admin panel credentials and route behavior are documented in [AUTH](docs/AUTH.md), while layout rules are in [UI design](docs/UI_DESIGN.md).
 
 ## Blog management (Module 1)
 
@@ -57,6 +57,14 @@ After migrations, open **Admin → Email settings** to enter SMTP host, port, en
 ### Shared hosting queues
 
 The application can use `QUEUE_CONNECTION=database`; the jobs table migration is already included, so run `php artisan migrate --force`. On Hostinger, configure a cron job to run `cd /path/to/app && php artisan queue:work --stop-when-empty --max-time=50` every minute. Use `QUEUE_CONNECTION=sync` as a fallback when cron workers are unavailable; queued work then runs during the web request.
+
+## Contact form and submissions (Module 3)
+
+The public Bento contact form is at `/contact`; admin submissions, status filters, read/unread controls, CSV export, and resend are at `/admin/contacts`. Configure the company notification address under **Admin → Email settings**. Leads are stored before notification is attempted, so mail failures remain visible for retry. Visitor auto-replies are optional. See [Contact form](docs/CONTACT_FORM.md) and [Deployment](docs/DEPLOYMENT.md).
+
+## Project documentation
+
+Architecture, routes, database, authentication, blog SEO, email, contact, deployment, testing, UI design, and release notes are documented in the [`docs/`](docs/) directory.
 
 ## Page files
 

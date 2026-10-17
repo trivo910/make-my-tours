@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SmtpTestMail;
 use App\Models\EmailLog;
 use App\Models\Setting;
 use App\Support\EmailConfiguration;
@@ -40,6 +41,7 @@ class EmailSettingsController extends Controller
             'company_notification_email' => ['required', 'email', 'max:255'],
             'cc' => ['nullable', 'email', 'max:255'],
             'bcc' => ['nullable', 'email', 'max:255'],
+            'contact_auto_reply_enabled' => ['nullable', 'boolean'],
         ]);
 
         $values = [
@@ -52,6 +54,7 @@ class EmailSettingsController extends Controller
             'company_notification_email' => $data['company_notification_email'],
             'mail_cc' => $data['cc'] ?? '',
             'mail_bcc' => $data['bcc'] ?? '',
+            'contact_auto_reply_enabled' => $request->boolean('contact_auto_reply_enabled') ? '1' : '0',
         ];
         if (! empty($data['password'])) $values['mail_password'] = Crypt::encryptString($data['password']);
 
@@ -71,13 +74,10 @@ class EmailSettingsController extends Controller
         $recipient = $data['recipient'];
         try {
             EmailConfiguration::apply();
-            Mail::purge('smtp');
-            Mail::mailer('smtp')->raw('Your email settings are working. This test message was sent from the Make My Tours admin panel.', function ($mail) use ($recipient, $settings) {
-                $mail->to($recipient);
-                if (! empty($settings['mail_cc'])) $mail->cc($settings['mail_cc']);
-                if (! empty($settings['mail_bcc'])) $mail->bcc($settings['mail_bcc']);
-                $mail->subject('Make My Tours · SMTP test');
-            });
+            $mail = Mail::mailer('smtp')->to($recipient);
+            if (! empty($settings['mail_cc'])) $mail->cc($settings['mail_cc']);
+            if (! empty($settings['mail_bcc'])) $mail->bcc($settings['mail_bcc']);
+            $mail->send(new SmtpTestMail());
 
             EmailLog::create(['recipient' => $recipient, 'result' => 'success', 'message' => 'Test email delivered successfully.']);
             return back()->with('test_result', ['type' => 'success', 'message' => 'Test email sent successfully to '.$recipient.'.']);

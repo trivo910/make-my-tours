@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class BlogPostSlugHistory extends Model
 {
+    protected $table = 'blog_slug_redirects';
     protected $fillable = ['post_id', 'old_slug'];
 
     public function post(): BelongsTo { return $this->belongsTo(BlogPost::class); }

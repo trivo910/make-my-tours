@@ -17,6 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    document.querySelectorAll('[data-select-all]').forEach((selectAll) => {
+        selectAll.addEventListener('change', () => {
+            const table = selectAll.closest('table');
+            table?.querySelectorAll('tbody input[type="checkbox"][form]').forEach((checkbox) => {
+                checkbox.checked = selectAll.checked;
+            });
+        });
+    });
+
     document.querySelectorAll('.button-primary[type="submit"]').forEach((button) => {
         button.closest('form')?.addEventListener('submit', () => {
             if (button.disabled) return;

@@ -7,6 +7,8 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use App\Support\EmailConfiguration;
+use App\Models\ContactSubmission;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,6 +38,12 @@ class AppServiceProvider extends ServiceProvider
                 Limit::perMinute(5)->by('admin-login-ip:'.$request->ip()),
                 Limit::perMinute(5)->by('admin-login-credential:'.$request->ip().'|'.$email),
             ];
+        });
+
+        RateLimiter::for('contact-form', fn (Request $request) => Limit::perMinutes(10, 5)->by('contact-form:'.$request->ip()));
+
+        View::composer('admin.layouts.app', function ($view) {
+            $view->with('unreadContacts', ContactSubmission::unread()->count());
         });
     }
 }

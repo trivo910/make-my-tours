@@ -14,7 +14,7 @@ class EmailConfiguration
         if (! Schema::hasTable('settings')) return [];
         return Setting::query()->whereIn('key', [
             'mail_host', 'mail_port', 'mail_encryption', 'mail_username', 'mail_password',
-            'mail_from_address', 'mail_from_name', 'company_notification_email', 'mail_cc', 'mail_bcc',
+            'mail_from_address', 'mail_from_name', 'company_notification_email', 'mail_cc', 'mail_bcc', 'contact_auto_reply_enabled',
         ])->pluck('value', 'key')->all();
     }
 

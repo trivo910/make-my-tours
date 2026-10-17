@@ -14,7 +14,7 @@
         </div>
         <a class="{{ request()->is('tempo-traveller-hire') ? 'active' : '' }}" href="{{ url('/tempo-traveller-hire') }}" @if (request()->is('tempo-traveller-hire')) aria-current="page" @endif>Tempo Traveller Hire</a>
         <a class="{{ request()->is('faqs') ? 'active' : '' }}" href="{{ url('/faqs') }}" @if (request()->is('faqs')) aria-current="page" @endif>FAQ’s</a>
-        <a href="{{ url('/#contact') }}">Contact</a>
+        <a href="{{ route('contact.create') }}">Contact</a>
     </nav>
     <a class="header-call" href="tel:+917718036300">
         <span class="call-icon" aria-hidden="true">☎</span>
@@ -34,7 +34,7 @@
             </div>
             <a href="{{ url('/tempo-traveller-hire') }}" @if (request()->is('tempo-traveller-hire')) aria-current="page" @endif>Tempo Traveller Hire</a>
             <a class="{{ request()->is('faqs') ? 'active' : '' }}" href="{{ url('/faqs') }}" @if (request()->is('faqs')) aria-current="page" @endif>FAQ’s</a>
-            <a href="{{ url('/#contact') }}">Contact</a>
+            <a href="{{ route('contact.create') }}">Contact</a>
         </nav>
     </details>
 </header>
