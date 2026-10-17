@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Blog\PostController as AdminPostController;
 use App\Http\Controllers\Admin\Blog\EditorImageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\Admin\EmailSettingsController;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -53,10 +54,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/', fn () => view('admin.dashboard', [
             'recentPosts' => \App\Models\BlogPost::with('category')->latest('updated_at')->take(3)->get(),
+            'emailTest' => \App\Models\EmailLog::latest()->first(),
+            'emailConfigured' => \App\Models\Setting::where('key', 'mail_host')->whereNotNull('value')->exists(),
         ]))->name('dashboard');
         Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::get('/settings/email', [EmailSettingsController::class, 'edit'])->name('settings.email.edit');
+        Route::put('/settings/email', [EmailSettingsController::class, 'update'])->name('settings.email.update');
+        Route::post('/settings/email/test', [EmailSettingsController::class, 'sendTest'])->middleware('throttle:3,1')->name('settings.email.test');
         Route::get('/blog', [AdminPostController::class, 'index'])->name('blog.index');
         Route::get('/blog/create', [AdminPostController::class, 'create'])->name('blog.create');
         Route::post('/blog', [AdminPostController::class, 'store'])->name('blog.store');

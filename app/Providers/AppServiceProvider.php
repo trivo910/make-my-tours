@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
+use App\Support\EmailConfiguration;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $command = $_SERVER['argv'][1] ?? null;
+        $mailRuntimeCommands = ['queue:work', 'queue:listen', 'schedule:run', 'test'];
+        if (! app()->runningInConsole() || in_array($command, $mailRuntimeCommands, true)) {
+            EmailConfiguration::apply();
+        }
+
         RateLimiter::for('admin-login', function (Request $request) {
             $email = mb_strtolower((string) $request->input('email'));
 

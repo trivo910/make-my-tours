@@ -50,6 +50,10 @@ php artisan storage:link
 
 Blog image uploads accept JPEG, PNG, and WebP up to 5 MB and are resized to at most 1600×1200 WebP. Enable PHP GD with WebP support and Fileinfo on the host. Admin tools are at `/admin/blog`; public stories are at `/blog`. Posts are visible only after their status is `published` and their publish time has arrived. Category changes to a post slug keep the previous slug for a permanent redirect.
 
+## Email configuration (Module 2)
+
+After migrations, open **Admin → Email settings** to enter SMTP host, port, encryption, sender, and company notification details. Settings are stored in the database; the SMTP password is encrypted with `APP_KEY`, so back up that key and leave the password field empty when you do not need to change it. Use the test card to send a real test message and review the result and delivery log. Configure a valid SMTP server before expecting password reset emails or contact notifications to deliver.
+
 ### Shared hosting queues
 
 The application can use `QUEUE_CONNECTION=database`; the jobs table migration is already included, so run `php artisan migrate --force`. On Hostinger, configure a cron job to run `cd /path/to/app && php artisan queue:work --stop-when-empty --max-time=50` every minute. Use `QUEUE_CONNECTION=sync` as a fallback when cron workers are unavailable; queued work then runs during the web request.
