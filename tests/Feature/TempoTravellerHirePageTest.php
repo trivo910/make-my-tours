@@ -14,6 +14,7 @@ class TempoTravellerHirePageTest extends TestCase
             ->assertSeeText('Tempo Traveller Hire – Make My Tours & Travels')
             ->assertViewIs('pages.tempo-traveller-hire')
             ->assertSee('class="site-header"', false)
-            ->assertSee('class="site-footer"', false);
+            ->assertSee('class="site-footer"', false)
+            ->assertSee('href="' . route('blog.index') . '"', false);
     }
 }

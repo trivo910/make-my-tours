@@ -41,6 +41,19 @@ class BlogController extends Controller
         $description = $post->meta_description ?: ($post->excerpt ?: str($post->content)->stripTags()->limit(160));
         $canonical = $post->canonical_url ?: route('blog.show', $post->slug);
         $ogImage = $post->og_image ?: ($post->featured_image ? asset('storage/'.$post->featured_image) : null);
+        $imageUrl = $ogImage ? (str_starts_with($ogImage, 'http') ? $ogImage : asset($ogImage)) : null;
+        $structuredData = [
+            '@context' => 'https://schema.org',
+            '@type' => 'BlogPosting',
+            'headline' => $post->title,
+            'description' => $description,
+            'image' => $imageUrl,
+            'datePublished' => $post->published_at->toIso8601String(),
+            'dateModified' => $post->updated_at->toIso8601String(),
+            'author' => ['@type' => 'Person', 'name' => $post->author?->name ?? config('app.name')],
+            'publisher' => ['@type' => 'Organization', 'name' => config('app.name')],
+            'mainEntityOfPage' => ['@type' => 'WebPage', '@id' => $canonical],
+        ];
 
         return view('blog.show', [
             'post' => $post,
@@ -48,6 +61,7 @@ class BlogController extends Controller
             'description' => $description,
             'canonical' => $canonical,
             'ogImage' => $ogImage,
+            'structuredData' => $structuredData,
             'seoTitle' => $title,
             'seoDescription' => $description,
         ]);

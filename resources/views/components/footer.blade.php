@@ -13,6 +13,7 @@
         <div class="footer-column">
             <h2>Quick Links</h2>
             <a href="{{ url('/about') }}">About Us</a>
+            <a href="{{ route('blog.index') }}">Blog</a>
             <a href="{{ url('/#services') }}">Services</a>
             <a href="{{ url('/#fleet') }}">Projects</a>
             <a href="{{ url('/#fleet') }}">Pricing</a>
