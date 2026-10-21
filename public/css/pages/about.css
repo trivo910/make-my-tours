@@ -34,7 +34,7 @@ img {
 
 .about-banner {
     position: relative;
-    height: 241px;
+    height: 330px;
     overflow: hidden;
     background: #101414 url("/images/public-transportation-coach-bus-passenger-e1656574186152.webp") center 53% / cover no-repeat;
     color: #fff;
@@ -87,14 +87,14 @@ img {
     margin: 0 0 10px;
     font-family: "Barlow", Arial, sans-serif;
     font-size: clamp(20px, 2.6vw, 31px);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
 }
 
 .about-story-copy p {
     margin: 0 0 6px;
     color: var(--about-muted);
-    font-size: 10px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.55;
 }

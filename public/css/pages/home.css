@@ -139,7 +139,8 @@ img {
 .button-small {
     min-height: 37px;
     padding-inline: 18px;
-    font-size: 11px;
+    font-size: 16px;
+    padding: 20px 30px;
 }
 
 .play-link {
@@ -249,7 +250,7 @@ img {
 .about-copy > p:not(.section-kicker) {
     margin: 0 0 14px;
     color: var(--muted);
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.8;
 }
 
@@ -457,7 +458,7 @@ img {
 .fleet-heading > p {
     margin: 0;
     color: var(--muted);
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.7;
 }
 
@@ -487,14 +488,14 @@ img {
 .service-card h3 {
     margin: 0 0 5px;
     font-family: "Barlow", Arial, sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.2;
 }
 
 .service-card p {
     margin: 0 0 12px;
     color: var(--muted);
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.65;
 }
 
@@ -572,8 +573,8 @@ img {
 .journey-copy > p:not(.section-kicker) {
     margin: 0 0 22px;
     color: #ddd;
-    font-size: 12px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 .fleet-section {
@@ -638,8 +639,10 @@ img {
 .vehicle-details h3 {
     margin: 0;
     font-family: "Barlow", Arial, sans-serif;
-    font-size: 19px;
+    font-size: 22px;
+    font-weight: 600;
     line-height: 1.2;
+    padding-bottom: 10px;
 }
 
 .vehicle-price {
@@ -661,7 +664,7 @@ img {
     margin: 0 0 15px;
     padding: 0;
     color: var(--muted);
-    font-size: 10px;
+    font-size: 14px;
     list-style: none;
     text-align: left;
 }
@@ -680,8 +683,8 @@ img {
 }
 
 .vehicle-actions > a:last-child {
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .testimonials-section {
@@ -709,7 +712,7 @@ img {
 .testimonial-heading > p:last-child {
     margin: 0;
     color: rgba(255, 255, 255, .86);
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.7;
 }
 
@@ -730,7 +733,7 @@ img {
 
 .stars {
     color: #ffb82e;
-    font-size: 14px;
+    font-size: 22px;
     letter-spacing: 2px;
 }
 
@@ -738,7 +741,7 @@ img {
     min-height: 62px;
     margin: 7px 0 11px;
     color: var(--muted);
-    font-size: 11px;
+    font-size: 15px;
     line-height: 1.65;
 }
 
@@ -749,15 +752,15 @@ img {
 }
 
 .reviewer img {
-    width: 34px;
-    height: 34px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .reviewer strong {
     font-family: "Barlow", Arial, sans-serif;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .blog-section {
