@@ -3,6 +3,7 @@
 ## 2026-10-21 — Blog publishing and display fixes
 
 - Made blog image uploads work without GD/WebP support by storing validated images in their original format when conversion is unavailable.
+- Restored public featured-image delivery by creating the missing `public/storage` link to `storage/app/public`; run `php artisan storage:link` after deployment when the link is absent.
 - Set the default application timezone to `Asia/Kolkata` (overridable with `APP_TIMEZONE`) so local admin publication times are evaluated correctly; scheduled posts remain hidden until due.
 - Fixed the public blog post Blade parse error by preparing BlogPosting structured data in the controller before JSON rendering.
 - Added feature coverage for image storage fallback, blog visibility, scheduled posts, and public post structured data.
