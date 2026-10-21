@@ -8,6 +8,7 @@
 - Fixed the public blog post Blade parse error by preparing BlogPosting structured data in the controller before JSON rendering.
 - Added feature coverage for image storage fallback, blog visibility, scheduled posts, and public post structured data.
 - Updated the blog SEO operations documentation with the timezone and optional image-conversion requirements.
+- Documented deployment checks for preserving static site images, diagnosing public asset URL failures, and identifying legacy WordPress upload paths.
 
 ## 2026-10-17 — Public contact page theme alignment
 
