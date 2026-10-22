@@ -35,6 +35,9 @@
             <a href="{{ url('/tempo-traveller-hire') }}" @if (request()->is('tempo-traveller-hire')) aria-current="page" @endif>Tempo Traveller Hire</a>
             <a class="{{ request()->is('faqs') ? 'active' : '' }}" href="{{ url('/faqs') }}" @if (request()->is('faqs')) aria-current="page" @endif>FAQ’s</a>
             <a href="{{ route('contact.create') }}">Contact</a>
+            @if (request()->is('blog*'))
+                <a class="blog-mobile-call" href="tel:+917718036300">Contact Us Now | +91 77180 36300</a>
+            @endif
         </nav>
     </details>
 </header>
