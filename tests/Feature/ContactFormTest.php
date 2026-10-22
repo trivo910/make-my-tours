@@ -16,6 +16,7 @@ class ContactFormTest extends TestCase
     public function test_contact_page_is_public_and_submission_is_saved_and_notified(): void
     {
         Setting::create(['key' => 'company_notification_email', 'value' => 'team@example.com']);
+        Setting::create(['key' => 'mail_cc', 'value' => 'copy@example.com']);
         Mail::fake();
 
         $response = $this->post(route('contact.store'), [
@@ -27,7 +28,10 @@ class ContactFormTest extends TestCase
         $this->assertDatabaseHas('contact_submissions', [
             'name' => 'Asha Visitor', 'email' => 'asha@example.com', 'email_status' => 'sent',
         ]);
-        Mail::assertSent(ContactNotificationMail::class, fn ($mail) => $mail->submission->email === 'asha@example.com');
+        Mail::assertSent(ContactNotificationMail::class, fn ($mail) =>
+            $mail->submission->email === 'asha@example.com'
+            && $mail->hasCc('copy@example.com')
+        );
     }
 
     public function test_invalid_contact_data_is_rejected(): void
