@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-22 — Blog tablet and mobile responsiveness
+
+- Added a compact, blog-scoped navigation layout with a phone action available from the phone menu.
+- Made blog banners, cards, article content, images, code, tables, pagination, and footer controls adapt to tablet and phone widths with readable text and larger tap targets.
+- Kept desktop blog styles and non-blog pages outside the responsive overrides.
+
 ## 2026-10-22 — Public blog header and hero alignment
 
 - Aligned public blog pages with the shared site header/footer, Heebo and Barlow typography, and the inner-page image banner pattern.

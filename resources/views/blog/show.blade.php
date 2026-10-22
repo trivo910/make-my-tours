@@ -15,7 +15,7 @@
                 <span aria-hidden="true">&#8250;</span>
                 <a href="{{ route('blog.index') }}">Blog</a>
                 <span aria-hidden="true">&#8250;</span>
-                <span aria-current="page">{{ $post->title }}</span>
+                <span aria-current="page">{{ $post->category?->name ?? 'Travel notes' }}</span>
             </nav>
             <div class="blog-hero-copy">
                 <span class="blog-hero-label">{{ $post->category?->name ?? 'TRAVEL NOTES' }}</span>
