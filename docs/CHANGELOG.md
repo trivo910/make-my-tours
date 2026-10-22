@@ -3,7 +3,7 @@
 ## 2026-10-22 — Public blog header and hero alignment
 
 - Aligned public blog pages with the shared site header/footer, Heebo and Barlow typography, and the inner-page image banner pattern.
-- Added the Home > Blog breadcrumb, responsive space for the overlaid header, and the Make My Tours & Travels title suffix; removed the blog-only theme toggle and decorative hero art.
+- Added Home > Blog and article breadcrumbs, responsive space for the overlaid header, and the Make My Tours & Travels title suffix; removed the blog-only theme toggle and decorative hero art.
 - Kept listing, category, tag, and article content styling within the existing blog stylesheet.
 
 ## 2026-10-21 — Blog publishing and display fixes
