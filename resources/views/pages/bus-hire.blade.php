@@ -14,6 +14,13 @@
     <meta name="description"
         content="Hire AC and Non-AC buses in Mumbai for Mumbai Darshan, corporate events, weddings, school trips, group tours and outstation travel with Make My Tours & Travels.">
 
+    @include('components.open-graph', [
+        'socialTitle' => 'Bus Hire in Mumbai | AC & Non-AC Bus Rental | Make My Tours & Travels',
+        'socialDescription' => 'Hire AC and Non-AC buses in Mumbai for Mumbai Darshan, corporate events, weddings, school trips, group tours and outstation travel.',
+        'socialImage' => asset('images/luxury-ac-coach.png'),
+        'socialImageAlt' => 'Luxury air-conditioned coach available for hire in Mumbai',
+    ])
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect"

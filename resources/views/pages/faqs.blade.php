@@ -12,6 +12,13 @@
     <meta name="description"
         content="Find answers to frequently asked questions about Tempo Traveller, Bus Hire, Urbania rental, bookings, airport transfers and outstation travel in Mumbai.">
 
+    @include('components.open-graph', [
+        'socialTitle' => 'Travel FAQs | Make My Tours & Travels',
+        'socialDescription' => 'Find answers to frequently asked questions about Tempo Traveller, bus hire, Urbania rental, bookings, airport transfers and outstation travel in Mumbai.',
+        'socialImage' => asset('images/Friendly Travel Support Team.png'),
+        'socialImageAlt' => 'Make My Tours & Travels customer support team',
+    ])
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect"

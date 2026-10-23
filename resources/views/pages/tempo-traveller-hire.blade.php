@@ -11,6 +11,13 @@
     <meta name="description"
         content="Hire a Tempo Traveller in Mumbai for family trips, weddings, corporate travel, Mumbai Darshan, airport transfers and outstation journeys. Get a quote from Make My Tours & Travels.">
 
+    @include('components.open-graph', [
+        'socialTitle' => 'Tempo Traveller Hire in Mumbai | Make My Tours & Travels',
+        'socialDescription' => 'Hire a Tempo Traveller in Mumbai for family trips, weddings, corporate travel, Mumbai Darshan, airport transfers and outstation journeys.',
+        'socialImage' => asset('images/tempo1.png'),
+        'socialImageAlt' => 'Tempo Traveller available for hire in Mumbai',
+    ])
+
     <meta name="keywords"
         content="Tempo Traveller Hire in Mumbai, Tempo Traveller on Rent in Mumbai, Tempo Traveller Rental Mumbai, 12 Seater Tempo Traveller Mumbai, Tempo Traveller for Outstation">
 

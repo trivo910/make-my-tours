@@ -28,6 +28,9 @@ class BlogVisibilityTest extends TestCase
 
         $this->get(route('blog.show', 'published-travel-story'))
             ->assertOk()
+            ->assertSee('property="og:type" content="article"', false)
+            ->assertSee('property="og:title" content="A published travel story', false)
+            ->assertSee('property="og:url" content="' . route('blog.show', 'published-travel-story') . '"', false)
             ->assertSee('"@type":"BlogPosting"', false)
             ->assertSee('application/ld+json');
     }

@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Learn about Make My Tours &amp; Travels, Mumbai's trusted AC bus, non-AC bus, and tempo traveller rental service since 2008.">
     <title>About – Make My Tours &amp; Travels</title>
+    @include('components.open-graph', [
+        'socialTitle' => 'About Make My Tours & Travels – Trusted Travel in Mumbai Since 2008',
+        'socialDescription' => "Learn about Make My Tours & Travels, Mumbai's trusted AC bus, non-AC bus, and tempo traveller rental service since 2008.",
+        'socialImage' => asset('images/bd-explorations-1.png'),
+        'socialImageAlt' => 'Passengers boarding a Make My Tours bus beside the Gateway of India in Mumbai',
+    ])
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">

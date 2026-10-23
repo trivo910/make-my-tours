@@ -14,6 +14,13 @@
     <meta name="description"
         content="Hire a premium Urbania in Mumbai for family trips, corporate travel, weddings, airport transfers, Mumbai Darshan and outstation journeys. Comfortable AC Urbania with experienced driver.">
 
+    @include('components.open-graph', [
+        'socialTitle' => 'Urbania Hire in Mumbai | Urbania Rental with Driver',
+        'socialDescription' => 'Hire a premium Urbania in Mumbai for family trips, corporate travel, weddings, airport transfers, Mumbai Darshan and outstation journeys.',
+        'socialImage' => asset('images/mb-explorations-2.png'),
+        'socialImageAlt' => 'Comfortable group travel with Make My Tours & Travels',
+    ])
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect"

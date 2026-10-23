@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Contact Make My Tours &amp; Travels for help planning your next trip, tour, or group journey.">
     <title>Contact | Make My Tours &amp; Travels</title>
+    @include('components.open-graph', [
+        'socialTitle' => 'Contact Make My Tours & Travels',
+        'socialDescription' => 'Contact Make My Tours & Travels in Mumbai for help planning your next trip, tour, or group journey.',
+        'socialImage' => asset('images/bd-explorations-1.png'),
+        'socialImageAlt' => 'Make My Tours & Travels serving Mumbai and beyond',
+    ])
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">

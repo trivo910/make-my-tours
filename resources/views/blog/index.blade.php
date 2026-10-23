@@ -1,6 +1,6 @@
 @extends('blog.layout')
 @section('main-class', 'blog-index-main')
-@section('seo')<link rel="canonical" href="{{ url()->current() }}"><meta property="og:type" content="website"><meta property="og:title" content="{{ $title }}"><meta property="og:description" content="{{ $description }}"><meta property="og:url" content="{{ url()->current() }}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{{ $title }}"><meta name="twitter:description" content="{{ $description }}">@endsection
+@section('seo')<link rel="canonical" href="{{ url()->current() }}">@include('components.open-graph', ['socialTitle' => $title, 'socialDescription' => $description, 'socialImage' => asset('images/bd-explorations-1.png'), 'socialImageAlt' => 'Make My Tours & Travels exploring Mumbai'])@endsection
 @section('content')
     <section class="blog-hero" aria-labelledby="blog-page-title">
         <div class="blog-hero-inner">

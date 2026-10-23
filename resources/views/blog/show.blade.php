@@ -2,8 +2,8 @@
 @section('seo')
     <link rel="canonical" href="{{ $canonical }}">
     <meta name="robots" content="{{ $post->robots_index }},{{ $post->robots_follow }}">
-    <meta property="og:type" content="article"><meta property="og:title" content="{{ $post->og_title ?: $title }}"><meta property="og:description" content="{{ $post->og_description ?: $description }}"><meta property="og:url" content="{{ $canonical }}">@if($ogImage)<meta property="og:image" content="{{ str_starts_with($ogImage,'http') ? $ogImage : asset($ogImage) }}">@endif<meta property="article:published_time" content="{{ $post->published_at->toIso8601String() }}">
-    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{{ $post->og_title ?: $title }}"><meta name="twitter:description" content="{{ $post->og_description ?: $description }}">@if($ogImage)<meta name="twitter:image" content="{{ str_starts_with($ogImage,'http') ? $ogImage : asset($ogImage) }}">@endif
+    @include('components.open-graph', ['socialTitle' => $post->og_title ?: $title, 'socialDescription' => $post->og_description ?: $description, 'socialUrl' => $canonical, 'socialImage' => $ogImage ? (str_starts_with($ogImage, 'http') ? $ogImage : asset($ogImage)) : asset('images/bd-explorations-1.png'), 'socialImageAlt' => $post->title, 'socialType' => 'article'])
+    <meta property="article:published_time" content="{{ $post->published_at->toIso8601String() }}">
     <script type="application/ld+json">@json($structuredData, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_AMP|JSON_HEX_QUOT)</script>
 @endsection
 @section('main-class', 'blog-article-main')
