@@ -171,7 +171,7 @@
                 <div class="bus-image-box">
 
                     <img
-                        src="{{ asset('images/bus-hire/bus-hire-mumbai.jpg') }}"
+                        src="{{ asset('images/tempo1.png') }}"
                         alt="Bus Hire Service in Mumbai">
 
                     <div class="bus-floating-card bus-floating-top">
@@ -392,7 +392,7 @@
                     <div class="bus-feature-image">
 
                         <img
-                            src="{{ asset('images/bus-hire/group-bus-travel.jpg') }}"
+                            src="{{ asset('images/make-my-why-choose-us.png') }}"
                             alt="Group Bus Travel in Mumbai">
 
                     </div>
@@ -501,7 +501,7 @@
                         <div class="bus-fleet-image">
 
                             <img
-                                src="{{ asset('images/bus-hire/ac-bus.jpg') }}"
+                                src="{{ asset('images/luxury-ac-coach.png') }}"
                                 alt="AC Bus Hire in Mumbai">
 
                         </div>
@@ -561,7 +561,7 @@
                         <div class="bus-fleet-image">
 
                             <img
-                                src="{{ asset('images/bus-hire/non-ac-bus.jpg') }}"
+                                src="{{ asset('images/luxury-ac-coach.png') }}"
                                 alt="Non AC Bus Hire in Mumbai">
 
                         </div>
@@ -620,7 +620,7 @@
                         <div class="bus-fleet-image">
 
                             <img
-                                src="{{ asset('images/bus-hire/large-bus.jpg') }}"
+                                src="{{ asset('images/luxury-ac-coach.png') }}"
                                 alt="Large Group Bus Rental in Mumbai">
 
                         </div>

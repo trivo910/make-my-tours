@@ -174,7 +174,7 @@
                 <div class="urbania-image-box">
 
                     <img
-                        src="{{ asset('images/urbania/urbania-mumbai.jpg') }}"
+                        src="{{ asset('images/mb-explorations-2.png') }}"
                         alt="Urbania Hire in Mumbai">
 
                     <div class="urbania-floating-card urbania-floating-top">
@@ -344,7 +344,7 @@
                     <div class="urbania-feature-image">
 
                         <img
-                            src="{{ asset('images/urbania/urbania-interior.jpg') }}"
+                            src="{{ asset('images/public-transportation-coach-bus-passenger-e1656574186152.webp') }}"
                             alt="Urbania Premium Interior">
 
                     </div>
@@ -687,7 +687,7 @@
                     <div class="urbania-destination-image">
 
                         <img
-                            src="{{ asset('images/urbania/urbania-outstation.jpg') }}"
+                            src="{{ asset('images/young-couple-traveling-on-a-bus-e1656574261102.webp') }}"
                             alt="Urbania Outstation Travel from Mumbai">
 
                     </div>
@@ -818,7 +818,7 @@
                     <div class="urbania-why-image">
 
                         <img
-                            src="{{ asset('images/urbania/urbania-service.jpg') }}"
+                            src="{{ asset('images/make-my-why-choose-us.png') }}"
                             alt="Urbania Rental Service Mumbai">
 
                     </div>
