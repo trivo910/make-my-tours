@@ -34,7 +34,7 @@
 
     <link rel="stylesheet"
         href="{{ asset('css/pages/bus-hire.css') }}">
-
+    @include('components.tagmanager')
     @vite('resources/js/app.js')
 
 </head>

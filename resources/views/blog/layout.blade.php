@@ -7,6 +7,7 @@
     @yield('seo')
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"><link rel="stylesheet" href="{{ asset('css/components/header.css') }}"><link rel="stylesheet" href="{{ asset('css/components/footer.css') }}"><link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+    @include('components.tagmanager')
 </head>
 <body class="blog-body">
     @include('components.header')

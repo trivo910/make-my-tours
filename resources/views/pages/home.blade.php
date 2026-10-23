@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/components/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pages/home.css') }}">
+    @include('components.tagmanager')
     @vite('resources/js/app.js')
 </head>
 <body>

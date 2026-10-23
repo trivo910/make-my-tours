@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{ asset('css/components/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pages/tempo-traveller-hire.css') }}">
-
+    @include('components.tagmanager')
     @vite('resources/js/app.js')
 </head>
 

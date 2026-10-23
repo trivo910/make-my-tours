@@ -32,7 +32,7 @@
 
     <link rel="stylesheet"
         href="{{ asset('css/pages/faqs.css') }}">
-
+    @include('components.tagmanager')
     @vite('resources/js/app.js')
 
 </head>
