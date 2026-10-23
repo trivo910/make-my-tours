@@ -53,7 +53,7 @@
                 </label>
                 <label>
                     <span>When</span>
-                    <input type="date" name="date" aria-label="Travel date">
+                    <input type="date" name="date" aria-label="Travel date" min="{{ now()->toDateString() }}">
                 </label>
                 <label>
                     <span>Time</span>

@@ -18,6 +18,7 @@ class ExampleTest extends TestCase
             ->assertSeeText('Your Trusted Travel Partner Since 2008')
             ->assertSeeText('Explore Our Travel Services')
             ->assertSeeText('Our Bus Collection')
+            ->assertSee('aria-label="Travel date" min="' . now()->toDateString() . '"', false)
             ->assertSee('images/bd-explorations-1.png')
             ->assertSee('class="site-header"', false)
             ->assertSee('class="site-footer"', false);
