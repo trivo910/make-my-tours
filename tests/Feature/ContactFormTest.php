@@ -13,6 +13,15 @@ class ContactFormTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_contact_page_includes_travel_agency_geo_schema(): void
+    {
+        $this->get(route('contact.create'))
+            ->assertOk()
+            ->assertSee('"@type": "TravelAgency"', false)
+            ->assertSee('"latitude": 19.1311', false)
+            ->assertSee('"longitude": 72.8258', false);
+    }
+
     public function test_contact_page_is_public_and_submission_is_saved_and_notified(): void
     {
         Setting::create(['key' => 'company_notification_email', 'value' => 'team@example.com']);

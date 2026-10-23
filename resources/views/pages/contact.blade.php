@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/components/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
     @include('components.tagmanager')
+    @include('components.googletaging')
     @vite('resources/js/app.js')
 </head>
 <body class="contact-page">
