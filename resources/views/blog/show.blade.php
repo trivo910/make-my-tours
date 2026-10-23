@@ -20,7 +20,7 @@
             <div class="blog-hero-copy">
                 <span class="blog-hero-label">{{ $post->category?->name ?? 'TRAVEL NOTES' }}</span>
                 <h1 id="article-page-title">{{ $post->title }}</h1>
-                @if ($post->excerpt)<p>{{ $post->excerpt }}</p>@endif
+                <!-- @if ($post->excerpt)<p>{{ $post->excerpt }}</p>@endif -->
             </div>
         </div>
     </section>
