@@ -17,7 +17,7 @@
     @include('components.open-graph', [
         'socialTitle' => 'Urbania Hire in Mumbai | Urbania Rental with Driver',
         'socialDescription' => 'Hire a premium Urbania in Mumbai for family trips, corporate travel, weddings, airport transfers, Mumbai Darshan and outstation journeys.',
-        'socialImage' => asset('images/mb-explorations-2.png'),
+        'socialImage' => asset('images/mb-explorations-2.webp'),
         'socialImageAlt' => 'Comfortable group travel with Make My Tours & Travels',
     ])
 
@@ -181,7 +181,7 @@
                 <div class="urbania-image-box">
 
                     <img
-                        src="{{ asset('images/mb-explorations-2.png') }}"
+                        src="{{ asset('images/mb-explorations-2.webp') }}"
                         alt="Urbania Hire in Mumbai">
 
                     <div class="urbania-floating-card urbania-floating-top">
