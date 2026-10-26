@@ -14,7 +14,7 @@
     @include('components.open-graph', [
         'socialTitle' => 'Tempo Traveller Hire in Mumbai | Make My Tours & Travels',
         'socialDescription' => 'Hire a Tempo Traveller in Mumbai for family trips, weddings, corporate travel, Mumbai Darshan, airport transfers and outstation journeys.',
-        'socialImage' => asset('images/tempo1.png'),
+        'socialImage' => asset('images/tempo1.webp'),
         'socialImageAlt' => 'Tempo Traveller available for hire in Mumbai',
     ])
 
@@ -229,7 +229,7 @@
                 <div class="tt-image-box">
 
                     <img
-                        src="{{ asset('images/tempo1.png') }}"
+                        src="{{ asset('images/tempo1.webp') }}"
                         alt="Tempo Traveller hire in Mumbai">
 
                     <div class="tt-floating-card top-card">

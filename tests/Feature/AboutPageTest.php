@@ -13,7 +13,7 @@ class AboutPageTest extends TestCase
         $response->assertOk()
             ->assertSeeText('Make My Tours & Travels – Trusted AC Bus, Non-AC Bus & Tempo Traveller Rental in Mumbai')
             ->assertSeeText('Since 2008, Make My Tours & Travels has been a trusted name in Mumbai')
-            ->assertSee('images/bd-explorations-1.png')
+            ->assertSee('images/bd-explorations-1.webp')
             ->assertSee('class="site-header"', false)
             ->assertSee('class="site-footer"', false);
     }

@@ -17,7 +17,7 @@
     @include('components.open-graph', [
         'socialTitle' => 'Bus Hire in Mumbai | AC & Non-AC Bus Rental | Make My Tours & Travels',
         'socialDescription' => 'Hire AC and Non-AC buses in Mumbai for Mumbai Darshan, corporate events, weddings, school trips, group tours and outstation travel.',
-        'socialImage' => asset('images/luxury-ac-coach.png'),
+        'socialImage' => asset('images/luxury-ac-coach.webp'),
         'socialImageAlt' => 'Luxury air-conditioned coach available for hire in Mumbai',
     ])
 
@@ -178,7 +178,7 @@
                 <div class="bus-image-box">
 
                     <img
-                        src="{{ asset('images/tempo1.png') }}"
+                        src="{{ asset('images/tempo1.webp') }}"
                         alt="Bus Hire Service in Mumbai">
 
                     <div class="bus-floating-card bus-floating-top">
@@ -399,7 +399,7 @@
                     <div class="bus-feature-image">
 
                         <img
-                            src="{{ asset('images/make-my-why-choose-us.png') }}"
+                            src="{{ asset('images/make-my-why-choose-us.webp') }}"
                             alt="Group Bus Travel in Mumbai">
 
                     </div>
@@ -508,7 +508,7 @@
                         <div class="bus-fleet-image">
 
                             <img
-                                src="{{ asset('images/luxury-ac-coach.png') }}"
+                                src="{{ asset('images/luxury-ac-coach.webp') }}"
                                 alt="AC Bus Hire in Mumbai">
 
                         </div>
@@ -568,7 +568,7 @@
                         <div class="bus-fleet-image">
 
                             <img
-                                src="{{ asset('images/luxury-ac-coach.png') }}"
+                                src="{{ asset('images/luxury-ac-coach.webp') }}"
                                 alt="Non AC Bus Hire in Mumbai">
 
                         </div>
@@ -627,7 +627,7 @@
                         <div class="bus-fleet-image">
 
                             <img
-                                src="{{ asset('images/luxury-ac-coach.png') }}"
+                                src="{{ asset('images/luxury-ac-coach.webp') }}"
                                 alt="Large Group Bus Rental in Mumbai">
 
                         </div>

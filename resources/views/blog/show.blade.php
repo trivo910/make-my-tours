@@ -2,7 +2,7 @@
 @section('seo')
     <link rel="canonical" href="{{ $canonical }}">
     <meta name="robots" content="{{ $post->robots_index }},{{ $post->robots_follow }}">
-    @include('components.open-graph', ['socialTitle' => $post->og_title ?: $title, 'socialDescription' => $post->og_description ?: $description, 'socialUrl' => $canonical, 'socialImage' => $ogImage ? (str_starts_with($ogImage, 'http') ? $ogImage : asset($ogImage)) : asset('images/bd-explorations-1.png'), 'socialImageAlt' => $post->title, 'socialType' => 'article'])
+    @include('components.open-graph', ['socialTitle' => $post->og_title ?: $title, 'socialDescription' => $post->og_description ?: $description, 'socialUrl' => $canonical, 'socialImage' => $ogImage ? (str_starts_with($ogImage, 'http') ? $ogImage : asset($ogImage)) : asset('images/bd-explorations-1.webp'), 'socialImageAlt' => $post->title, 'socialType' => 'article'])
     <meta property="article:published_time" content="{{ $post->published_at->toIso8601String() }}">
     <script type="application/ld+json">@json($structuredData, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_AMP|JSON_HEX_QUOT)</script>
 @endsection

@@ -12,7 +12,7 @@ Recreates the reference About page for Make My Tours & Travels, describing the c
 - Shared header/footer: `resources/views/components/header.blade.php` and `resources/views/components/footer.blade.php`
 - Served directly from `public/css/pages/about.css`
 - Banner image: `public/images/public-transportation-coach-bus-passenger-e1656574186152.webp`
-- Company image: `public/images/bd-explorations-1.png`
+- Company image: `public/images/bd-explorations-1.webp`
 - Logos: `public/images/logo-black-scaled.png.png` and `public/images/mmt-footer-logo.png`
 
 ## Sections

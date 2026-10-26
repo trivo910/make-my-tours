@@ -825,7 +825,7 @@
                     <div class="urbania-why-image">
 
                         <img
-                            src="{{ asset('images/make-my-why-choose-us.png') }}"
+                            src="{{ asset('images/make-my-why-choose-us.webp') }}"
                             alt="Urbania Rental Service Mumbai">
 
                     </div>

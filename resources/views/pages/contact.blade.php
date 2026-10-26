@@ -8,7 +8,7 @@
     @include('components.open-graph', [
         'socialTitle' => 'Contact Make My Tours & Travels',
         'socialDescription' => 'Contact Make My Tours & Travels in Mumbai for help planning your next trip, tour, or group journey.',
-        'socialImage' => asset('images/bd-explorations-1.png'),
+        'socialImage' => asset('images/bd-explorations-1.webp'),
         'socialImageAlt' => 'Make My Tours & Travels serving Mumbai and beyond',
     ])
     <link rel="preconnect" href="https://fonts.googleapis.com">

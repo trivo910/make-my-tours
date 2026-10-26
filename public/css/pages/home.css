@@ -52,7 +52,7 @@ img {
     position: relative;
     min-height: 660px;
     color: #fff;
-    background: #242628 url("/images/mt-banner-image-scaled.png") center 48% / cover no-repeat;
+    background: #242628 url("/images/mt-banner-image-scaled.webp") center 48% / cover no-repeat;
 }
 
 .hero::before {
@@ -334,7 +334,7 @@ img {
 
 .why-photo {
     min-height: 610px;
-    background: #dcebf3 url("/images/make-my-why-choose-us.png") center / cover no-repeat;
+    background: #dcebf3 url("/images/make-my-why-choose-us.webp") center / cover no-repeat;
 }
 
 .why-panel {

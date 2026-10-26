@@ -8,7 +8,7 @@
     @include('components.open-graph', [
         'socialTitle' => 'About Make My Tours & Travels – Trusted Travel in Mumbai Since 2008',
         'socialDescription' => "Learn about Make My Tours & Travels, Mumbai's trusted AC bus, non-AC bus, and tempo traveller rental service since 2008.",
-        'socialImage' => asset('images/bd-explorations-1.png'),
+        'socialImage' => asset('images/bd-explorations-1.webp'),
         'socialImageAlt' => 'Passengers boarding a Make My Tours bus beside the Gateway of India in Mumbai',
     ])
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
                     <p>Based in Mumbai, we proudly serve customers across Mumbai, Thane, and nearby areas with a fleet of clean, regularly maintained vehicles that are inspected before every trip. Passenger comfort, vehicle cleanliness, and on-time service are our top priorities, ensuring you enjoy a smooth and worry-free travel experience every time.</p>
                     <p>Our experienced and courteous drivers are familiar with local and outstation routes, helping every journey remain safe and stress-free. Whether you need a spacious AC Bus for large groups, a comfortable Non-AC Bus for budget-friendly travel, or a Tempo Traveller for family and small group trips, Make My Tours &amp; Travels offers flexible rental options at competitive prices to suit every travel requirement.</p>
                 </div>
-                <img class="about-story-image" src="{{ asset('images/bd-explorations-1.png') }}" alt="Passengers boarding a Make My Tours bus beside the Gateway of India in Mumbai">
+                <img class="about-story-image" src="{{ asset('images/bd-explorations-1.webp') }}" alt="Passengers boarding a Make My Tours bus beside the Gateway of India in Mumbai">
             </div>
         </section>
     </main>

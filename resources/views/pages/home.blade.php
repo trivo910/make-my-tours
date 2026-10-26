@@ -8,7 +8,7 @@
     @include('components.open-graph', [
         'socialTitle' => 'Make My Tours & Travels | Your Trusted Travel Partner Since 2008',
         'socialDescription' => 'Discover Mumbai and travel in comfort with Make My Tours & Travels. Book buses, tempo travellers and tailored city tours.',
-        'socialImage' => asset('images/bd-explorations-1.png'),
+        'socialImage' => asset('images/bd-explorations-1.webp'),
         'socialImageAlt' => 'A Make My Tours bus at the Gateway of India in Mumbai',
     ])
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -134,8 +134,8 @@
                 <a class="button button-orange button-small" href="#why-us">More About Us</a>
             </div>
             <div class="about-gallery">
-                <img class="about-main-image" src="{{ asset('images/bd-explorations-1.png') }}" alt="A tour bus visiting the Gateway of India">
-                <img class="about-inset-image" src="{{ asset('images/mb-explorations-2.png') }}" alt="A traveller enjoying a Mumbai bus tour">
+                <img class="about-main-image" src="{{ asset('images/bd-explorations-1.webp') }}" alt="A tour bus visiting the Gateway of India">
+                <img class="about-inset-image" src="{{ asset('images/mb-explorations-2.webp') }}" alt="A traveller enjoying a Mumbai bus tour">
                 <div class="experience-badge">
                     <span class="badge-icon" aria-hidden="true">◎</span>
                     <span><strong>15<sup>+</sup></strong><small>Years Experience</small></span>
@@ -214,7 +214,7 @@
         <section class="journey-banner" id="journey">
             <div class="journey-inner container">
                 <div class="journey-art">
-                    <img src="{{ asset('images/Book-Your-Journey-Today.png') }}" alt="Make My Tours mobile booking screens">
+                    <img src="{{ asset('images/Book-Your-Journey-Today.webp') }}" alt="Make My Tours mobile booking screens">
                 </div>
                 <div class="journey-copy">
                     <p class="section-kicker">Book Your Journey Today</p>
@@ -236,7 +236,7 @@
             </div>
             <div class="fleet-grid">
                 <article class="vehicle-card">
-                    <img src="{{ asset('images/luxury-ac-coach.png') }}" alt="Luxury air-conditioned coach">
+                    <img src="{{ asset('images/luxury-ac-coach.webp') }}" alt="Luxury air-conditioned coach">
                     <div class="vehicle-details">
                         <h3>AC Bus</h3><p class="vehicle-price">₹00<small>/day</small></p>
                         <ul><li>50 Seat</li><li>2 Driver Staff</li><li>Manual</li><li>Fully Insured</li></ul>
@@ -244,7 +244,7 @@
                     </div>
                 </article>
                 <article class="vehicle-card">
-                    <img src="{{ asset('images/non-ac-bus.png') }}" alt="Non-air-conditioned passenger bus">
+                    <img src="{{ asset('images/non-ac-bus.webp') }}" alt="Non-air-conditioned passenger bus">
                     <div class="vehicle-details">
                         <h3>Non-AC Bus</h3><p class="vehicle-price">₹00<small>/day</small></p>
                         <ul><li>42 Seat</li><li>2 Driver Staff</li><li>Manual</li><li>Fully Insured</li></ul>
@@ -252,7 +252,7 @@
                     </div>
                 </article>
                 <article class="vehicle-card">
-                    <img src="{{ asset('images/mini-but.png') }}" alt="Tempo traveller minibus">
+                    <img src="{{ asset('images/mini-but.webp') }}" alt="Tempo traveller minibus">
                     <div class="vehicle-details">
                         <h3>Tempo</h3><p class="vehicle-price">₹00<small>/day</small></p>
                         <ul><li>12 Seat</li><li>1 Driver Staff</li><li>Manual</li><li>Fully Insured</li></ul>

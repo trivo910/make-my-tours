@@ -1,6 +1,6 @@
 <header class="site-header">
     <a class="brand" href="{{ url('/') }}" aria-label="Make My Tours and Travels home">
-        <img src="{{ asset('images/Make My Tours & Travels Logo.png') }}" alt="Make My Tours &amp; Travels">
+        <img src="{{ asset('images/Make My Tours & Travels Logo.webp') }}" alt="Make My Tours &amp; Travels">
     </a>
     <nav class="desktop-nav" aria-label="Main navigation">
         <a class="{{ request()->path() === '/' ? 'active' : '' }}" href="{{ url('/') }}" @if (request()->path() === '/') aria-current="page" @endif>Home</a>

@@ -517,7 +517,7 @@
                     <div class="faq-support-image">
 
                         <img
-                            src="{{ asset('images/Friendly Travel Support Team.png') }}"
+                            src="{{ asset('images/Friendly Travel Support Team.webp') }}"
                             alt="Make My Tours & Travels Customer Support">
 
                         <div class="faq-support-badge">
