@@ -1,0 +1,111 @@
+.booking-table-scroll {
+    overflow-x: auto;
+}
+
+.booking-table {
+    min-width: 1040px;
+    table-layout: auto;
+}
+
+.booking-table td,
+.booking-table th {
+    white-space: nowrap;
+}
+
+.booking-table .booking-visitor-cell {
+    display: flex;
+    min-width: 155px;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.booking-visitor-cell small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.booking-status-new {
+    background: var(--amber-soft);
+    color: var(--amber);
+}
+
+.booking-status-contacted {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.booking-status-confirmed {
+    background: var(--green-soft);
+    color: var(--green);
+}
+
+.booking-status-cancelled {
+    background: var(--rose-soft, #fcecef);
+    color: var(--rose);
+}
+
+.booking-trip-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.booking-trip-details > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.booking-trip-details span,
+.booking-status-form label {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.booking-trip-details strong {
+    overflow-wrap: anywhere;
+    font-size: 13px;
+}
+
+.booking-status-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 16px 0 24px;
+}
+
+.booking-status-form select {
+    min-height: 40px;
+    padding: 0 10px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--ink);
+}
+
+.booking-email-heading {
+    margin-top: 18px;
+}
+
+@media (max-width: 720px) {
+    .booking-table {
+        width: auto;
+    }
+
+    .booking-table th:nth-child(3),
+    .booking-table td:nth-child(3),
+    .booking-table th:nth-child(5),
+    .booking-table td:nth-child(5) {
+        display: table-cell;
+    }
+
+    .booking-trip-details {
+        gap: 9px;
+    }
+}

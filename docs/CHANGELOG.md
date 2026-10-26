@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-26 — Home page booking enquiry flow
+
+- Connected the home page booking form to a CSRF-protected, rate-limited submission route with server-side validation, honeypot protection, AJAX feedback, and standard form fallback.
+- Added persistent booking enquiries, company email notifications with failure tracking, and an authenticated admin list/detail workflow with filters, status changes, retry, deletion, and CSV export.
+- Added booking form, database, route, and operational documentation plus feature coverage for validation, persistence, notification failures, spam throttling, and admin actions.
+
 ## 2026-10-22 — Blog tablet and mobile responsiveness
 
 - Added a compact, blog-scoped navigation layout with a phone action available from the phone menu.

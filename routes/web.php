@@ -11,7 +11,9 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Admin\EmailSettingsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BookingEnquiryController;
 use App\Http\Controllers\Admin\ContactSubmissionController;
+use App\Http\Controllers\Admin\BookingEnquiryController as AdminBookingEnquiryController;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -40,6 +42,7 @@ Route::get('/faqs', function () {
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->middleware('throttle:contact-form')->name('contact.store');
+Route::post('/booking-enquiries', [BookingEnquiryController::class, 'store'])->middleware('throttle:booking-form')->name('booking-enquiries.store');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
 Route::get('/blog/tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
@@ -76,6 +79,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::patch('/contacts/{submission}/read', [ContactSubmissionController::class, 'toggleRead'])->name('contacts.toggle-read');
         Route::post('/contacts/{submission}/resend', [ContactSubmissionController::class, 'resend'])->name('contacts.resend');
         Route::delete('/contacts/{submission}', [ContactSubmissionController::class, 'destroy'])->name('contacts.destroy');
+        Route::get('/booking-enquiries/export', [AdminBookingEnquiryController::class, 'export'])->name('booking-enquiries.export');
+        Route::post('/booking-enquiries/bulk-delete', [AdminBookingEnquiryController::class, 'bulkDestroy'])->name('booking-enquiries.bulk-destroy');
+        Route::get('/booking-enquiries', [AdminBookingEnquiryController::class, 'index'])->name('booking-enquiries.index');
+        Route::get('/booking-enquiries/{bookingEnquiry}', [AdminBookingEnquiryController::class, 'show'])->name('booking-enquiries.show');
+        Route::patch('/booking-enquiries/{bookingEnquiry}/status', [AdminBookingEnquiryController::class, 'updateStatus'])->name('booking-enquiries.update-status');
+        Route::post('/booking-enquiries/{bookingEnquiry}/resend', [AdminBookingEnquiryController::class, 'resend'])->name('booking-enquiries.resend');
+        Route::delete('/booking-enquiries/{bookingEnquiry}', [AdminBookingEnquiryController::class, 'destroy'])->name('booking-enquiries.destroy');
         Route::get('/blog', [AdminPostController::class, 'index'])->name('blog.index');
         Route::get('/blog/create', [AdminPostController::class, 'create'])->name('blog.create');
         Route::post('/blog', [AdminPostController::class, 'store'])->name('blog.store');

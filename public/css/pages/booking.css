@@ -1,0 +1,130 @@
+#booking {
+    scroll-margin-top: 135px;
+}
+
+.booking-card > .booking-feedback {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0 auto 22px;
+    padding: 15px 18px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+}
+
+.booking-card > .booking-feedback[hidden] {
+    display: none;
+}
+
+.booking-feedback-success {
+    border-color: #b8dfc4;
+    background: #eff9f1;
+    color: #205c31;
+}
+
+.booking-feedback-error {
+    display: block;
+    border-color: #f0bdb9;
+    background: #fff3f2;
+    color: #8e2922;
+}
+
+.booking-feedback strong {
+    display: block;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.booking-feedback p {
+    margin: 2px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.booking-feedback-icon {
+    display: grid;
+    width: 25px;
+    height: 25px;
+    flex: 0 0 25px;
+    place-items: center;
+    border-radius: 50%;
+    background: #d8f0de;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.booking-card label > span i {
+    color: var(--brand-orange);
+    font-style: normal;
+}
+
+.booking-card label > span small {
+    color: #888;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.booking-card [aria-invalid="true"] {
+    border-color: #c64c63;
+}
+
+.booking-field-error {
+    display: block;
+    margin-top: 5px;
+    color: #a63049;
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.booking-field-error[hidden] {
+    display: none;
+}
+
+.booking-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+
+.booking-submit-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.booking-submit-loading[hidden] {
+    display: none;
+}
+
+.booking-spinner {
+    width: 15px;
+    height: 15px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: booking-spin .7s linear infinite;
+}
+
+.booking-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+@keyframes booking-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .booking-spinner {
+        animation: none;
+    }
+}

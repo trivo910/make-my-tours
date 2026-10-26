@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/admin-booking-enquiries.css') }}">
     <script>
         (() => { const saved = localStorage.getItem('admin-theme'); document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); })();
     </script>
@@ -23,6 +24,7 @@
                 <a class="nav-link {{ request()->routeIs('admin.blog*') || request()->routeIs('admin.blog-categories*') ? 'active' : '' }}" href="{{ route('admin.blog.index') }}"><span>✎</span> Blog</a>
                 <a class="nav-link {{ request()->routeIs('admin.settings.email*') ? 'active' : '' }}" href="{{ route('admin.settings.email.edit') }}"><span>✉</span> Email settings</a>
                 <a class="nav-link {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}"><span>◉</span> Contacts @if($unreadContacts)<small class="nav-badge">{{ $unreadContacts > 99 ? '99+' : $unreadContacts }}</small>@endif</a>
+                <a class="nav-link {{ request()->routeIs('admin.booking-enquiries.*') ? 'active' : '' }}" href="{{ route('admin.booking-enquiries.index') }}"><span>▤</span> Booking Enquiries @if($newBookingEnquiries)<small class="nav-badge">{{ $newBookingEnquiries > 99 ? '99+' : $newBookingEnquiries }}</small>@endif</a>
             </nav>
             <div class="sidebar-bottom"><div class="security-note"><span class="status-dot"></span><div><strong>Admin access</strong><small>Protected session</small></div></div></div>
         </aside>

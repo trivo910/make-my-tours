@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/components/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pages/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/booking.css') }}">
     @include('components.tagmanager')
     @include('components.googletaging')
     @vite('resources/js/app.js')
@@ -40,43 +41,87 @@
         </section>
 
         <section class="booking-section" id="booking" aria-label="Plan your journey">
-            <form class="booking-card" action="{{ url('/') }}" method="get">
+            <form id="booking-form" class="booking-card" action="{{ route('booking-enquiries.store') }}" method="post" data-booking-form>
+                @csrf
+                @if (session('booking_success'))
+                    <div class="booking-feedback booking-feedback-success" data-booking-success role="status" tabindex="-1">
+                        <span class="booking-feedback-icon" aria-hidden="true">✓</span>
+                        <div><strong>Enquiry received</strong><p data-booking-success-message>{{ session('booking_success') }}</p></div>
+                    </div>
+                @else
+                    <div class="booking-feedback booking-feedback-success" data-booking-success role="status" tabindex="-1" hidden>
+                        <span class="booking-feedback-icon" aria-hidden="true">✓</span>
+                        <div><strong>Enquiry received</strong><p data-booking-success-message></p></div>
+                    </div>
+                @endif
+                <div class="booking-feedback booking-feedback-error" data-booking-error role="alert" tabindex="-1" @if(!$errors->any()) hidden @endif>
+                    <strong>{{ $errors->any() ? 'Please check the highlighted fields.' : 'We could not send your enquiry.' }}</strong>
+                    <p data-booking-error-message>{{ $errors->any() ? 'Some details need your attention before we can send your request.' : '' }}</p>
+                </div>
                 <label>
-                    <span>From</span>
-                    <select name="from" aria-label="Departure destination">
+                    <span>From <i aria-hidden="true">*</i></span>
+                    <select id="booking-from" name="from_location" aria-label="Departure destination" required @error('from_location') aria-invalid="true" aria-describedby="booking-from-error" @enderror>
                         <option value="">Select Destination</option>
-                        <option>Mumbai</option>
-                        <option>Pune</option>
-                        <option>Nashik</option>
+                        @foreach(config('booking.locations') as $location)
+                            <option value="{{ $location }}" @selected(old('from_location') === $location)>{{ $location }}</option>
+                        @endforeach
                     </select>
+                    <small class="booking-field-error" id="booking-from-error" data-booking-error-for="from_location" @if(!$errors->has('from_location')) hidden @endif>{{ $errors->first('from_location') }}</small>
                 </label>
                 <label>
-                    <span>To</span>
-                    <select name="to" aria-label="Arrival destination">
+                    <span>To <i aria-hidden="true">*</i></span>
+                    <select id="booking-to" name="to_location" aria-label="Arrival destination" required @error('to_location') aria-invalid="true" aria-describedby="booking-to-error" @enderror>
                         <option value="">Select Destination</option>
-                        <option>Mumbai</option>
-                        <option>Pune</option>
-                        <option>Nashik</option>
+                        @foreach(config('booking.locations') as $location)
+                            <option value="{{ $location }}" @selected(old('to_location') === $location)>{{ $location }}</option>
+                        @endforeach
                     </select>
+                    <small class="booking-field-error" id="booking-to-error" data-booking-error-for="to_location" @if(!$errors->has('to_location')) hidden @endif>{{ $errors->first('to_location') }}</small>
                 </label>
                 <label>
-                    <span>When</span>
-                    <input type="date" name="date" aria-label="Travel date" min="{{ now()->toDateString() }}">
+                    <span>When <i aria-hidden="true">*</i></span>
+                    <input id="booking-date" type="date" name="travel_date" aria-label="Travel date" min="{{ now()->toDateString() }}" value="{{ old('travel_date') }}" required @error('travel_date') aria-invalid="true" aria-describedby="booking-date-error" @enderror>
+                    <small class="booking-field-error" id="booking-date-error" data-booking-error-for="travel_date" @if(!$errors->has('travel_date')) hidden @endif>{{ $errors->first('travel_date') }}</small>
                 </label>
                 <label>
-                    <span>Time</span>
-                    <select name="time" aria-label="Departure time">
+                    <span>Time <i aria-hidden="true">*</i></span>
+                    <select id="booking-time" name="time_slot" aria-label="Departure time" required @error('time_slot') aria-invalid="true" aria-describedby="booking-time-error" @enderror>
                         <option value="">Select Time</option>
-                        <option>Morning</option>
-                        <option>Afternoon</option>
-                        <option>Evening</option>
+                        @foreach(['Morning', 'Afternoon', 'Evening'] as $timeSlot)
+                            <option value="{{ $timeSlot }}" @selected(old('time_slot') === $timeSlot)>{{ $timeSlot }}</option>
+                        @endforeach
                     </select>
+                    <small class="booking-field-error" id="booking-time-error" data-booking-error-for="time_slot" @if(!$errors->has('time_slot')) hidden @endif>{{ $errors->first('time_slot') }}</small>
                 </label>
                 <label>
-                    <span>Seat</span>
-                    <input type="number" min="1" max="50" name="seats" placeholder="Select Seat" aria-label="Number of seats">
+                    <span>Seat <i aria-hidden="true">*</i></span>
+                    <input id="booking-seats" type="number" min="1" max="60" name="seats" value="{{ old('seats') }}" placeholder="Select Seat" aria-label="Number of seats" required @error('seats') aria-invalid="true" aria-describedby="booking-seats-error" @enderror>
+                    <small class="booking-field-error" id="booking-seats-error" data-booking-error-for="seats" @if(!$errors->has('seats')) hidden @endif>{{ $errors->first('seats') }}</small>
                 </label>
-                <button class="button button-orange booking-submit" type="submit">Submit Button</button>
+                <label>
+                    <span>Name <i aria-hidden="true">*</i></span>
+                    <input id="booking-name" type="text" name="name" value="{{ old('name') }}" maxlength="100" autocomplete="name" placeholder="Your name" required @error('name') aria-invalid="true" aria-describedby="booking-name-error" @enderror>
+                    <small class="booking-field-error" id="booking-name-error" data-booking-error-for="name" @if(!$errors->has('name')) hidden @endif>{{ $errors->first('name') }}</small>
+                </label>
+                <label>
+                    <span>Phone <i aria-hidden="true">*</i></span>
+                    <input id="booking-phone" type="tel" name="phone" value="{{ old('phone') }}" maxlength="32" autocomplete="tel" placeholder="+91 98765 43210" required @error('phone') aria-invalid="true" aria-describedby="booking-phone-error" @enderror>
+                    <small class="booking-field-error" id="booking-phone-error" data-booking-error-for="phone" @if(!$errors->has('phone')) hidden @endif>{{ $errors->first('phone') }}</small>
+                </label>
+                <label>
+                    <span>Email <small>(optional)</small></span>
+                    <input id="booking-email" type="email" name="email" value="{{ old('email') }}" maxlength="255" autocomplete="email" placeholder="you@example.com" @error('email') aria-invalid="true" aria-describedby="booking-email-error" @enderror>
+                    <small class="booking-field-error" id="booking-email-error" data-booking-error-for="email" @if(!$errors->has('email')) hidden @endif>{{ $errors->first('email') }}</small>
+                </label>
+                <input type="hidden" name="vehicle_type" value="{{ old('vehicle_type', request()->query('vehicle_type', '')) }}" data-booking-vehicle-type>
+                <div class="booking-honeypot" aria-hidden="true">
+                    <label for="booking-website">Leave this field empty</label>
+                    <input id="booking-website" name="website" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <button class="button button-orange booking-submit" type="submit" data-booking-submit>
+                    <span data-booking-submit-label>Submit Button</span>
+                    <span class="booking-submit-loading" data-booking-submit-loading hidden><span class="booking-spinner" aria-hidden="true"></span>Sending...</span>
+                </button>
             </form>
         </section>
 
@@ -195,7 +240,7 @@
                     <div class="vehicle-details">
                         <h3>AC Bus</h3><p class="vehicle-price">₹00<small>/day</small></p>
                         <ul><li>50 Seat</li><li>2 Driver Staff</li><li>Manual</li><li>Fully Insured</li></ul>
-                        <div class="vehicle-actions"><a class="button button-orange button-small" href="#booking">Book Now</a><a href="#booking">View Details <span aria-hidden="true">➜</span></a></div>
+                        <div class="vehicle-actions"><a class="button button-orange button-small" href="#booking" data-vehicle-type="AC Bus">Book Now</a><a href="#booking">View Details <span aria-hidden="true">➜</span></a></div>
                     </div>
                 </article>
                 <article class="vehicle-card">
@@ -203,7 +248,7 @@
                     <div class="vehicle-details">
                         <h3>Non-AC Bus</h3><p class="vehicle-price">₹00<small>/day</small></p>
                         <ul><li>42 Seat</li><li>2 Driver Staff</li><li>Manual</li><li>Fully Insured</li></ul>
-                        <div class="vehicle-actions"><a class="button button-orange button-small" href="#booking">Book Now</a><a href="#booking">View Details <span aria-hidden="true">➜</span></a></div>
+                        <div class="vehicle-actions"><a class="button button-orange button-small" href="#booking" data-vehicle-type="Non-AC Bus">Book Now</a><a href="#booking">View Details <span aria-hidden="true">➜</span></a></div>
                     </div>
                 </article>
                 <article class="vehicle-card">
@@ -211,7 +256,7 @@
                     <div class="vehicle-details">
                         <h3>Tempo</h3><p class="vehicle-price">₹00<small>/day</small></p>
                         <ul><li>12 Seat</li><li>1 Driver Staff</li><li>Manual</li><li>Fully Insured</li></ul>
-                        <div class="vehicle-actions"><a class="button button-orange button-small" href="#booking">Book Now</a><a href="#booking">View Details <span aria-hidden="true">➜</span></a></div>
+                        <div class="vehicle-actions"><a class="button button-orange button-small" href="#booking" data-vehicle-type="Tempo">Book Now</a><a href="#booking">View Details <span aria-hidden="true">➜</span></a></div>
                     </div>
                 </article>
             </div>

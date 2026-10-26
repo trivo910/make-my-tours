@@ -7,6 +7,7 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use App\Support\EmailConfiguration;
+use App\Models\BookingEnquiry;
 use App\Models\ContactSubmission;
 use Illuminate\Support\Facades\View;
 
@@ -41,9 +42,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
         RateLimiter::for('contact-form', fn (Request $request) => Limit::perMinutes(10, 5)->by('contact-form:'.$request->ip()));
+        RateLimiter::for('booking-form', fn (Request $request) => Limit::perMinutes(10, 5)->by('booking-form:'.$request->ip()));
 
         View::composer('admin.layouts.app', function ($view) {
-            $view->with('unreadContacts', ContactSubmission::unread()->count());
+            $view->with([
+                'unreadContacts' => ContactSubmission::unread()->count(),
+                'newBookingEnquiries' => BookingEnquiry::where('status', 'new')->count(),
+            ]);
         });
     }
 }
