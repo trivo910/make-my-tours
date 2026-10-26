@@ -242,7 +242,7 @@
             </div>
         </section>
 
-        <section class="blog-section section-space container" id="blog">
+        <!-- <section class="blog-section section-space container" id="blog">
             <div class="blog-heading">
                 <div class="section-heading">
                     <p class="section-kicker">Our Bus</p>
@@ -257,7 +257,7 @@
                 <p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>
                 <a class="text-link" href="#blog">Read More <span aria-hidden="true">→</span></a>
             </article>
-        </section>
+        </section> -->
     </main>
 
     @include('components.footer')
